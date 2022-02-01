@@ -1,0 +1,9 @@
+.blog-inner {
+    display: grid;
+    gap: 2em;
+    font-size: 1em;
+}
+
+.blog-inner>.title {
+    font-size: 2em;
+}
