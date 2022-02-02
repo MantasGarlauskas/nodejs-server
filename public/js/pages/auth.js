@@ -10,6 +10,9 @@ const validation = {};
 
 validation.username = (text) => {
     text = text.trim();
+    if (text === '') {
+        return 'Pamirsai parasyti username'
+    }
     if (text.length < minUsernameLength) {
         return 'Per trumpas slapyvardis';
     }
@@ -30,6 +33,9 @@ validation.email = (text) => {
 }
 
 validation.password = (text) => {
+    if (text === '') {
+        return 'Pamirsai parasyti slaptazodi'
+    }
     if (text.length < minPasswordLength) {
         return 'Per trumpas slaptazodis';
     }
@@ -44,12 +50,20 @@ submitDOM.addEventListener('click', (e) => {
     for (const inputDOM of allInputsDOM) {
         const { value, dataset } = inputDOM;
         const validationRule = dataset.validation;
+        if (!validationRule) {
+            console.error('ERROR: input tru turieti "data-validation" atributas');
+            continue;
+        }
         const validationFunction = validation[validationRule];
+        if (typeof validationFunction !== 'function') {
+            console.error('ERROR: nenumatyta validavimo funkcija', validationRule);
+            continue
+        }
 
         // tikriname konkrecios formos reiksmes teisinguma
         const valueState = validationFunction(value) // true; 'Error message'
 
-        if (valueState !== true) {
+        if (valueState !== true && !errors.includes(valueState)) {
             errors.push(valueState);
         }
 
