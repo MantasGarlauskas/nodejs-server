@@ -6,12 +6,13 @@
     "scripts": {
         "dev": "nodemon",
         "server": "node . NODE_ENV=production",
-        "test": "node  ./index.js NODE_ENV=test "
+        "test": "jest --watchAll --passWithNoTests"
     },
     "keywords": [],
     "author": "Mantas",
     "license": "",
     "devDependencies": {
+        "jest": "^27.4.7",
         "nodemon": "^2.0.15"
     }
 }
