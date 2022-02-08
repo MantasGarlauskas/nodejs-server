@@ -1,6 +1,11 @@
 body,
 main {
     display: grid;
+    align-items: start;
+}
+
+main {
+    min-height: calc(100vh - 60px - 99px);
 }
 
 .container {

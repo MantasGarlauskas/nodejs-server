@@ -37,7 +37,10 @@ class PageBlog extends PageTemplate {
             HTML += this.blogPostHTML(item);
         }
 
-        return `<div class="row list">${HTML}</div>`;
+        return `<div class="row list">${HTML}</div>
+        <div class="row">
+                        BLOG PAGINATION
+                    </div>`;
     }
 
     mainHTML() {
@@ -47,9 +50,7 @@ class PageBlog extends PageTemplate {
         return `<section class="container blog-list">
                     <h1 class="row title">My blog</h1>
                     ${contentHTML}
-                    <div class="row">
-                        BLOG PAGINATION
-                    </div>
+                    
                 </section>`;
     }
 }
