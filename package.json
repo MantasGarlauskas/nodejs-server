@@ -2,17 +2,19 @@
     "name": "004-server",
     "version": "1.0.0",
     "description": "",
+    "type": "module",
     "main": "index.js",
     "scripts": {
         "dev": "nodemon",
         "server": "node . NODE_ENV=production",
-        "test": "jest --watchAll --passWithNoTests"
+        "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js --config ./jest.config.js --watchAll --passWithNoTests"
     },
     "keywords": [],
     "author": "Mantas",
     "license": "",
     "devDependencies": {
         "jest": "^27.4.7",
+        "node-notifier": "^10.0.1",
         "nodemon": "^2.0.15"
     }
 }
