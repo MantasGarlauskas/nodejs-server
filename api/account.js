@@ -65,10 +65,15 @@ handler._account.post = async(data, callback) => {
             status: 'error',
             msg: 'Paskyra su tokiu el. pastu jau uzregistruota'
         });
+    };
+    const userData = {
+        username: userObj.username,
+        email: userObj.email,
+        password: userObj.pass,
     }
 
     // jei dar nebuvo uzregistruotas - registruojame
-    const creationStatus = await file.create('/data/users', userObj.email + '.json', userObj);
+    const creationStatus = await file.create('/data/users', userObj.email + '.json', userData);
     if (creationStatus !== true) {
         return callback(500, {
             status: 'error',
