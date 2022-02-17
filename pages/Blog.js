@@ -1,13 +1,14 @@
 import { PageTemplate } from "../lib/Page.js";
 
 class PageBlog extends PageTemplate {
-    constructor() {
-        super();
+    constructor(data) {
+        super(data);
         this.pageCSSfileName = 'blog';
     }
 
     getBlogPostsData() {
         return [];
+        // return [{}, {}, {}, {}];
     }
 
     emptyBlogHTML() {
@@ -38,9 +39,9 @@ class PageBlog extends PageTemplate {
         }
 
         return `<div class="row list">${HTML}</div>
-        <div class="row">
-                        BLOG PAGINATION
-                    </div>`;
+                <div class="row">
+                    BLOG PAGINATION
+                </div>`;
     }
 
     mainHTML() {
@@ -50,7 +51,6 @@ class PageBlog extends PageTemplate {
         return `<section class="container blog-list">
                     <h1 class="row title">My blog</h1>
                     ${contentHTML}
-                    
                 </section>`;
     }
 }
